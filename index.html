@@ -24,17 +24,28 @@
             animation-name: my-animation;
             animation-duration: 10s;
             animation-iteration-count: infinite;
-            animation-direction: alternate;
+            animation-direction: normal;
             animation-timing-function: linear;
+            animation-fill-mode: forwards;
+
         }
         main>div{
             width: 200px;
             height: 200px;
-            border: 2px solid black;
             z-index: 2;
             position: fixed;
             transform: translate(125px, 309px);
+            background: url("assets/img/Run (1).png");
+            background-position: center;
+            background-size: cover;
+            animation-name: my-animation1;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+
         }
+
 
 
         @keyframes my-animation {
@@ -51,6 +62,50 @@
             }
             100% {
                 left: -2400px;
+            }
+
+        }
+        @keyframes my-animation1 {
+            0% {
+                background: url("assets/img/Run (1).png");
+                background-position: center;
+                background-size: cover;
+            }
+            15% {
+                background: url("assets/img/Run (2).png");
+                background-position: center;
+                background-size: cover;
+
+            }
+            30% {
+                background: url("assets/img/Run (3).png");
+                background-position: center;
+                background-size: cover;
+            }
+            45% {
+                background: url("assets/img/Run (4).png");
+                background-position: center;
+                background-size: cover;
+            }
+            60% {
+                  background: url("assets/img/Run (5).png");
+                  background-position: center;
+                  background-size: cover;
+              }
+            75% {
+                background: url("assets/img/Run (6).png");
+                background-position: center;
+                background-size: cover;
+            }
+            90% {
+                background: url("assets/img/Run (7).png");
+                background-position: center;
+                background-size: cover;
+            }
+            100% {
+                background: url("assets/img/Run (8).png");
+                background-position: center;
+                background-size: cover;
             }
 
         }
