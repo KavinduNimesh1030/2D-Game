@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <title>Game</title>
+    <style>
+        main{
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #4F81BD;
+            overflow: hidden;
+        }
+
+        section {
+            position: absolute;
+            height: 101%;
+            background: url(assets/img/0.png);
+            background-size: contain;
+            background-position: center;
+            width: 500%;
+            animation-name: my-animation;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+
+        @keyframes my-animation {
+            0% {
+                left: 0;
+                right: 0;
+            }
+            25% {
+                left: -800px;
+
+            }
+            50% {
+                left: -1600px;
+            }
+            100% {
+                left: -2400px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<main>
+    <Section>
+
+    </Section>
+</main>
+
+</body>
+</html>
