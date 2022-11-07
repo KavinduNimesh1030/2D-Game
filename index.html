@@ -179,20 +179,59 @@
             0% {
                 top: 0px;
             }
-            25%{
+            10% {
+                background: url("assets/img/Jump (1).png");
+                background-position: center;
+                background-size: cover;
+            }
+            20%{
+                background: url("assets/img/Jump (2).png");
+                background-position: center;
+                background-size: cover;
+            }
+            30%{
                 background: url("assets/img/Jump (3).png");
                 background-position: center;
                 background-size: cover;
             }
+            40%{
+                background: url("assets/img/Jump (4).png");
+                background-position: center;
+                background-size: cover;
+            }
             50% {
-              top: -40px;
+              top: -50px;
                 background: url("assets/img/Jump (6).png");
                 background-position: center;
                 background-size: cover;
             }
+            60% {
+
+                background: url("assets/img/Jump (7).png");
+                background-position: center;
+                background-size: cover;
+            }
+            70% {
+
+                background: url("assets/img/Jump (9).png");
+                background-position: center;
+                background-size: cover;
+            }
+            80% {
+
+                background: url("assets/img/Jump (10).png");
+                background-position: center;
+                background-size: cover;
+            }
+            90% {
+
+                  background: url("assets/img/Jump (11).png");
+                  background-position: center;
+                  background-size: cover;
+              }
             100% {
-                top: -50px;
-                background: url("assets/img/Jump (11).png");
+                top: -70px;
+                background: url("assets/img/Jump (12).png");
                 background-position: center;
                 background-size: cover;
 
@@ -220,34 +259,54 @@
 </body>
 <script>
 
+    var sample = 0;
+
     $(document).ready(function () {
         $("#txtId").focus();
     });
    // $(selector).stop(stopAll,goToEnd);
    $("#txtId").on('keydown', function (event) {
        if (event.keyCode == 32) {
-            //alert("a");
+           //alert("a");
            // $("#character").css("animation-name", my-animation3)
-        /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
+           /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
            $("#character").animate({top: "0px"});*/
-           $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"infinite","animation-direction":"normal"})
+           $("#character").css({
+               "animation-name": "my-animation3",
+               "animation-iteration-count": "infinite",
+               "animation-direction": "normal",
+               "animation-duration": "1s"
+           })
 
 
-          /* animation-name: my-animation2;
+
+           /* animation-name: my-animation2;
            animation-duration: 17s;
            animation-iteration-count: infinite;
            animation-direction: normal;
            animation-timing-function: linear;*/
+
        }
 
+
+
+
    });
+   function a(){
+       clearTimeout(a,sample);
+       $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
+
+   }
+
     $("#txtId").on('keyup', function (event) {
         if (event.keyCode == 32) {
             //alert("a");
             // $("#character").css("animation-name", my-animation3)
             /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
                $("#character").animate({top: "0px"});*/
-            $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"1"})
+            $("#character").css({"animation-name": "my-animation3","animation-direction":"normal","animation-iteration-count" :"1"})
+
+            sample = setTimeout(a,1000)
 
 
             /* animation-name: my-animation2;
@@ -257,8 +316,13 @@
              animation-timing-function: linear;*/
         }
 
+
     });
-   // $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"1","animation-direction":"normal"})
+    $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
+
+
+
+    // $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"1","animation-direction":"normal"})
 
 
 </script>
