@@ -175,13 +175,36 @@
             }
 
         }
+        @keyframes my-animation3 {
+            0% {
+                top: 0px;
+            }
+            25%{
+                background: url("assets/img/Jump (3).png");
+                background-position: center;
+                background-size: cover;
+            }
+            50% {
+              top: -40px;
+                background: url("assets/img/Jump (6).png");
+                background-position: center;
+                background-size: cover;
+            }
+            100% {
+                top: -50px;
+                background: url("assets/img/Jump (11).png");
+                background-position: center;
+                background-size: cover;
+
+            }
+        }
     </style>
 </head>
 <body>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <main>
     <div id="div1">
-        <div>
+        <div id="character">
 
         </div>
     </div>
@@ -201,11 +224,41 @@
         $("#txtId").focus();
     });
    // $(selector).stop(stopAll,goToEnd);
-   $("#txtId").on('keypress', function (event) {
+   $("#txtId").on('keydown', function (event) {
        if (event.keyCode == 32) {
-            alert("a");
+            //alert("a");
+           // $("#character").css("animation-name", my-animation3)
+        /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
+           $("#character").animate({top: "0px"});*/
+           $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"infinite","animation-direction":"normal"})
+
+
+          /* animation-name: my-animation2;
+           animation-duration: 17s;
+           animation-iteration-count: infinite;
+           animation-direction: normal;
+           animation-timing-function: linear;*/
        }
+
    });
+    $("#txtId").on('keyup', function (event) {
+        if (event.keyCode == 32) {
+            //alert("a");
+            // $("#character").css("animation-name", my-animation3)
+            /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
+               $("#character").animate({top: "0px"});*/
+            $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"1"})
+
+
+            /* animation-name: my-animation2;
+             animation-duration: 17s;
+             animation-iteration-count: infinite;
+             animation-direction: normal;
+             animation-timing-function: linear;*/
+        }
+
+    });
+   // $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"1","animation-direction":"normal"})
 
 
 </script>
