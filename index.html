@@ -178,8 +178,9 @@
     </style>
 </head>
 <body>
+<script src="assets/js/jquery-3.6.1.min.js"></script>
 <main>
-    <div>
+    <div id="div1">
         <div>
 
         </div>
@@ -188,8 +189,24 @@
     <Section>
 
     </Section>
+    <input type="text" id="txtId" >
 
 </main>
 
+
 </body>
+<script>
+
+    $(document).ready(function () {
+        $("#txtId").focus();
+    });
+   // $(selector).stop(stopAll,goToEnd);
+   $("#txtId").on('keypress', function (event) {
+       if (event.keyCode == 32) {
+            alert("a");
+       }
+   });
+
+
+</script>
 </html>
