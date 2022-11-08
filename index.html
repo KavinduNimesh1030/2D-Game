@@ -14,7 +14,7 @@
             overflow: hidden;
         }
 
-        section {
+        #mainSec {
             position: absolute;
             height: 101%;
             background: url(assets/img/0.png);
@@ -54,6 +54,29 @@
             animation-iteration-count: infinite;
             animation-direction: normal;
             animation-timing-function: linear;
+        }
+        #fireSec{
+            display: flex;
+            position: relative;
+            display: flex;
+            position: relative;
+            transform: translate(558px, 438px);
+            animation-name: my-animation;
+            animation-duration: 9s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+            justify-content: space-between;
+
+
+
+        }
+        #fireSec>div{
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            margin-right: -4000px;
+
         }
 
 
@@ -144,22 +167,22 @@
 
             }
             30% {
-                left: 300px;
+                left: 350px;
 
             }
             40% {
-                left: 400px;
+                left: 550px;
 
             }
             50% {
-                left: 500px;
+                left: 650px;
 
             }
             60% {
-                left: 600px;
+                left: 710px;
             }
             70% {
-                left: 700px;
+                left: 800px;
 
             }
             80% {
@@ -248,9 +271,20 @@
         </div>
     </div>
 
-    <Section>
+    <Section id="mainSec">
 
     </Section>
+    <section id="fireSec">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+    </section>
     <input type="text" id="txtId" >
 
 </main>
@@ -267,10 +301,6 @@
    // $(selector).stop(stopAll,goToEnd);
    $("#txtId").on('keydown', function (event) {
        if (event.keyCode == 32) {
-           //alert("a");
-           // $("#character").css("animation-name", my-animation3)
-           /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
-           $("#character").animate({top: "0px"});*/
            $("#character").css({
                "animation-name": "my-animation3",
                "animation-iteration-count": "infinite",
@@ -278,18 +308,7 @@
                "animation-duration": "1s"
            })
 
-
-
-           /* animation-name: my-animation2;
-           animation-duration: 17s;
-           animation-iteration-count: infinite;
-           animation-direction: normal;
-           animation-timing-function: linear;*/
-
        }
-
-
-
 
    });
    function a(){
@@ -300,7 +319,6 @@
 
     $("#txtId").on('keyup', function (event) {
         if (event.keyCode == 32) {
-            //alert("a");
             // $("#character").css("animation-name", my-animation3)
             /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
                $("#character").animate({top: "0px"});*/
@@ -308,21 +326,10 @@
 
             sample = setTimeout(a,1000)
 
-
-            /* animation-name: my-animation2;
-             animation-duration: 17s;
-             animation-iteration-count: infinite;
-             animation-direction: normal;
-             animation-timing-function: linear;*/
         }
-
 
     });
     $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
-
-
-
-    // $("#character").css({"animation-name": "my-animation3","animation-iteration-count" :"1","animation-direction":"normal"})
 
 
 </script>
