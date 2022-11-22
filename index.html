@@ -312,58 +312,28 @@
     var sample = 0;
     var runTime = 0;
     var count = 1;
+    
 
-
-    $(document).ready(function () {
-        $("#txtId").focus();
-
-        clearInterval(runTime)
-        runTime = setInterval(run, 100);
-
-
+    $(document).keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+            clearInterval(runTime)
+            runTime = setInterval(run, 100);
+        }
     });
+
 
 
     function run() {
         count++;
         var imageUrl = "assets/img/Run (" + count + ").png"
-        console.log(imageUrl);
-
-        /*//document.getElementById("#character").src = "assets/img/Run ("+ count +").png";*/
         if (count == 8) {
             count = 1;
         }
         $('#character').attr("src",imageUrl);
-        /* $("#character").css("background-image", "url(" + imageUrl + ")");*/
-
-        /*      $("#character").css({
-                  "background-position": "center",
-                  "background-size": "cover",
-                  "width ":"100px",
-                  "height":"200px"
-
-              });*/
-
-
-        /*$("#character>img").css({
-            "width": "200px",
-            "height": "200px"
-
-
-        })*/
 
     }
 
-
-    /* function keyCheck(event){
-         var key = event.keyCode;
-
-         if(key == 32){
-             if(run == 0){
-                 run = setInterval(run,100);
-             }
-         }
-     }*/
     // $(selector).stop(stopAll,goToEnd);
     $("#txtId").on('keydown', function (event) {
         if (event.keyCode == 32) {
