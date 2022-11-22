@@ -53,11 +53,11 @@
 
         main > div {
             position: relative;
-            animation-name: my-animation2;
+            /*animation-name: my-animation2;
             animation-duration: 17s;
             animation-iteration-count: infinite;
             animation-direction: normal;
-            animation-timing-function: linear;
+            animation-timing-function: linear;*/
         }
 
         #fireSec {
@@ -274,7 +274,7 @@
 <body>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <main>
-    <div id="div1">
+    <div id="characterOuter">
         <img  src="assets/img/Run%20(1).png" id="character">
 
 
@@ -304,15 +304,21 @@
 
     var sample = 0;
     var runTime = 0;
+    var bgTime =0;
+    var chForwardTime =0;
     var count = 1;
-    var left = 0;
+    var BgLeft = 0;
+    var ChLeft = 0;
 
 
     $(document).keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
             clearInterval(runTime)
-            setInterval(backGroundAnimation,10)
+            clearInterval(bgTime)
+            clearInterval(chForwardTime)
+            bgTime = setInterval(backGroundAnimation,10)
+            chForwardTime =setInterval(characterForward,300)
             runTime = setInterval(run, 100);
         }
     });
@@ -329,10 +335,16 @@
         count++;
 
     }
+    
 
     function backGroundAnimation(){
-        left = left+(-2);
-        $('#mainSec').css("left",left);
+        BgLeft = BgLeft+(-2);
+        $('#mainSec').css("left",BgLeft);
+    }
+
+    function characterForward(){
+        ChLeft = ChLeft+(5);
+        $('#characterOuter').css("left",ChLeft);
     }
 
     // $(selector).stop(stopAll,goToEnd);
