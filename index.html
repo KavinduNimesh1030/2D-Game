@@ -232,37 +232,37 @@
             }
             50% {
                 top: -50px;
-                background: url("assets/img/Jump (6).png");
+                background: url("assets/img/Jump (5).png");
                 background-position: center;
                 background-size: cover;
             }
             60% {
 
-                background: url("assets/img/Jump (7).png");
+                background: url("assets/img/Jump (6).png");
                 background-position: center;
                 background-size: cover;
             }
             70% {
 
-                background: url("assets/img/Jump (9).png");
+                background: url("assets/img/Jump (7).png");
                 background-position: center;
                 background-size: cover;
             }
             80% {
 
-                background: url("assets/img/Jump (10).png");
+                background: url("assets/img/Jump (8).png");
                 background-position: center;
                 background-size: cover;
             }
             90% {
 
-                background: url("assets/img/Jump (11).png");
+                background: url("assets/img/Jump (9).png");
                 background-position: center;
                 background-size: cover;
             }
             100% {
                 top: -70px;
-                background: url("assets/img/Jump (12).png");
+                background: url("assets/img/Jump (10).png");
                 background-position: center;
                 background-size: cover;
 
@@ -309,6 +309,7 @@
     var count = 1;
     var BgLeft = 0;
     var ChLeft = 0;
+    var jumpCount = 0;
 
 
     $(document).keypress(function(event){
@@ -320,6 +321,12 @@
             bgTime = setInterval(backGroundAnimation,10)
             chForwardTime =setInterval(characterForward,300)
             runTime = setInterval(run, 100);
+        }else if(keycode == '32'){
+            clearInterval(runTime)
+            jump();
+            clearInterval(jumpTime)
+            jumpTime = setInterval(jumpHigh,100);
+
         }
     });
 
@@ -335,7 +342,7 @@
         count++;
 
     }
-    
+
 
     function backGroundAnimation(){
         BgLeft = BgLeft+(-2);
@@ -346,7 +353,45 @@
         ChLeft = ChLeft+(5);
         $('#characterOuter').css("left",ChLeft);
     }
+    var jumpTime = 1;
 
+    function jumpHigh() {
+        var imageUrl = "assets/img/Jump (" + count + ").png"
+        $('#character').attr("src",imageUrl);
+
+        if(jumpCount == 10){
+            jumpCount = 1;
+        }
+        jumpCount++;
+
+    }
+
+
+    function jump(){
+      /*  $("#characterOuter").animate({top: "-150px"  ,time: '200s'},"fast");
+        $("#characterOuter").animate({top: "0px",time: '200s'},"fast");*/
+
+
+
+        $( "#characterOuter" ).animate({
+            top: "-100px"
+        }, 400, function() {
+        });
+
+        $( "#characterOuter" ).animate({
+            top: "0px"
+        }, 400, function() {
+            clearInterval(jumpTime)
+
+
+
+        });
+        clearInterval(runTime)
+        runTime =setInterval(run,100);
+
+
+        //$('#characterOuter').css("top","-80px");
+    }
     // $(selector).stop(stopAll,goToEnd);
     /*  function a(){
           clearTimeout(a,sample);
