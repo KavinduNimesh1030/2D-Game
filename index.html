@@ -20,13 +20,7 @@
             background: url(assets/img/0.png);
             background-size: contain;
             background-position: center;
-            width: 500%;
-            animation-name: my-animation;
-            animation-duration: 10s;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-timing-function: linear;
-
+            width: 1000%;
 
         }
 
@@ -301,7 +295,6 @@
         <div></div>
 
     </section>
-    <input id="txtId" type="text">
 
 </main>
 
@@ -312,12 +305,14 @@
     var sample = 0;
     var runTime = 0;
     var count = 1;
-    
+    var left = 0;
+
 
     $(document).keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
             clearInterval(runTime)
+            setInterval(backGroundAnimation,10)
             runTime = setInterval(run, 100);
         }
     });
@@ -325,29 +320,22 @@
 
 
     function run() {
-        count++;
+
         var imageUrl = "assets/img/Run (" + count + ").png"
         if (count == 8) {
             count = 1;
         }
         $('#character').attr("src",imageUrl);
+        count++;
 
     }
 
+    function backGroundAnimation(){
+        left = left+(-2);
+        $('#mainSec').css("left",left);
+    }
+
     // $(selector).stop(stopAll,goToEnd);
-    $("#txtId").on('keydown', function (event) {
-        if (event.keyCode == 32) {
-            /*    $("#character").css({
-                    "animation-name": "my-animation3",
-                    "animation-iteration-count": "infinite",
-                    "animation-direction": "normal",
-                    "animation-duration": "1s"
-                })*/
-
-
-        }
-
-    });
     /*  function a(){
           clearTimeout(a,sample);
           $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
