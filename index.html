@@ -6,7 +6,7 @@
     <link href="assets/css/normalize.css" rel="stylesheet">
     <title>Game</title>
     <style>
-        main{
+        main {
             position: relative;
             width: 100vw;
             height: 100vh;
@@ -29,25 +29,35 @@
 
 
         }
-        main>div>div{
+
+        #character {
             width: 200px;
             height: 200px;
             z-index: 2;
+
             position: fixed;
             transform: translate(125px, 309px);
-            background: url("assets/img/Run (1).png");
-            background-position: center;
-            background-size: cover;
-            animation-name: my-animation1;
-            animation-duration: 0.5s;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-timing-function: linear;
-
+            /* background: url("assets/img/Run (1).png");*/
+          /*  background-position: center;
+            background-size: cover;*/
+            /*animation-name: my-animation1;*/
+            /* animation-duration: 0.5s;
+             animation-iteration-count: infinite;
+             animation-direction: normal;
+             animation-timing-function: linear;*/
 
 
         }
-        main>div{
+
+        main > div > div > img {
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+
+
+        }
+
+        main > div {
             position: relative;
             animation-name: my-animation2;
             animation-duration: 17s;
@@ -55,7 +65,8 @@
             animation-direction: normal;
             animation-timing-function: linear;
         }
-        #fireSec{
+
+        #fireSec {
             display: flex;
             position: relative;
             display: flex;
@@ -69,9 +80,9 @@
             justify-content: space-between;
 
 
-
         }
-        #fireSec>div{
+
+        #fireSec > div {
             width: 70px;
             height: 70px;
             margin-right: -4000px;
@@ -80,7 +91,6 @@
             background-position: center;
 
         }
-
 
 
         @keyframes my-animation {
@@ -95,7 +105,7 @@
             50% {
                 left: -1600px;
             }
-            75%{
+            75% {
                 left: -2400px;
             }
             100% {
@@ -104,58 +114,59 @@
             }
 
         }
-        @keyframes my-animation1 {
-            0% {
 
-                background: url("assets/img/Run (1).png");
-                background-position: center;
-                background-size: cover;
-            }
-            15% {
+        /*   @keyframes my-animation1 {
+               0% {
 
-                background: url("assets/img/Run (2).png");
-                background-position: center;
-                background-size: cover;
+                   background: url("assets/img/Run (1).png");
+                   background-position: center;
+                   background-size: cover;
+               }
+               15% {
 
-            }
-            30% {
+                   background: url("assets/img/Run (2).png");
+                   background-position: center;
+                   background-size: cover;
 
-                background: url("assets/img/Run (3).png");
-                background-position: center;
-                background-size: cover;
-            }
-            45% {
+               }
+               30% {
 
-                background: url("assets/img/Run (4).png");
-                background-position: center;
-                background-size: cover;
-            }
-            60% {
+                   background: url("assets/img/Run (3).png");
+                   background-position: center;
+                   background-size: cover;
+               }
+               45% {
 
-                  background: url("assets/img/Run (5).png");
-                  background-position: center;
-                  background-size: cover;
-              }
-            75% {
+                   background: url("assets/img/Run (4).png");
+                   background-position: center;
+                   background-size: cover;
+               }
+               60% {
 
-                background: url("assets/img/Run (6).png");
-                background-position: center;
-                background-size: cover;
-            }
-            90% {
+                     background: url("assets/img/Run (5).png");
+                     background-position: center;
+                     background-size: cover;
+                 }
+               75% {
 
-                background: url("assets/img/Run (7).png");
-                background-position: center;
-                background-size: cover;
-            }
-            100% {
+                   background: url("assets/img/Run (6).png");
+                   background-position: center;
+                   background-size: cover;
+               }
+               90% {
 
-                background: url("assets/img/Run (8).png");
-                background-position: center;
-                background-size: cover;
-            }
+                   background: url("assets/img/Run (7).png");
+                   background-position: center;
+                   background-size: cover;
+               }
+               100% {
 
-        }
+                   background: url("assets/img/Run (8).png");
+                   background-position: center;
+                   background-size: cover;
+               }
+
+           }*/
         @keyframes my-animation2 {
             0% {
                 left: 0;
@@ -200,6 +211,7 @@
             }
 
         }
+
         @keyframes my-animation3 {
             0% {
                 top: 0px;
@@ -209,23 +221,23 @@
                 background-position: center;
                 background-size: cover;
             }
-            20%{
+            20% {
                 background: url("assets/img/Jump (2).png");
                 background-position: center;
                 background-size: cover;
             }
-            30%{
+            30% {
                 background: url("assets/img/Jump (3).png");
                 background-position: center;
                 background-size: cover;
             }
-            40%{
+            40% {
                 background: url("assets/img/Jump (4).png");
                 background-position: center;
                 background-size: cover;
             }
             50% {
-              top: -50px;
+                top: -50px;
                 background: url("assets/img/Jump (6).png");
                 background-position: center;
                 background-size: cover;
@@ -250,10 +262,10 @@
             }
             90% {
 
-                  background: url("assets/img/Jump (11).png");
-                  background-position: center;
-                  background-size: cover;
-              }
+                background: url("assets/img/Jump (11).png");
+                background-position: center;
+                background-size: cover;
+            }
             100% {
                 top: -70px;
                 background: url("assets/img/Jump (12).png");
@@ -262,15 +274,17 @@
 
             }
         }
+
     </style>
 </head>
 <body>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <main>
     <div id="div1">
-        <div id="character">
+        <img  src="assets/img/Run%20(1).png" id="character">
 
-        </div>
+
+        </img>
     </div>
 
     <Section id="mainSec">
@@ -287,7 +301,7 @@
         <div></div>
 
     </section>
-    <input type="text" id="txtId" >
+    <input id="txtId" type="text">
 
 </main>
 
@@ -296,42 +310,93 @@
 <script>
 
     var sample = 0;
+    var runTime = 0;
+    var count = 1;
+
 
     $(document).ready(function () {
         $("#txtId").focus();
+
+        clearInterval(runTime)
+        runTime = setInterval(run, 100);
+
+
     });
-   // $(selector).stop(stopAll,goToEnd);
-   $("#txtId").on('keydown', function (event) {
-       if (event.keyCode == 32) {
-           $("#character").css({
-               "animation-name": "my-animation3",
-               "animation-iteration-count": "infinite",
-               "animation-direction": "normal",
-               "animation-duration": "1s"
-           })
 
-       }
 
-   });
-   function a(){
-       clearTimeout(a,sample);
-       $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
+    function run() {
+        count++;
+        var imageUrl = "assets/img/Run (" + count + ").png"
+        console.log(imageUrl);
 
-   }
+        /*//document.getElementById("#character").src = "assets/img/Run ("+ count +").png";*/
+        if (count == 8) {
+            count = 1;
+        }
+        $('#character').attr("src",imageUrl);
+        /* $("#character").css("background-image", "url(" + imageUrl + ")");*/
 
-    $("#txtId").on('keyup', function (event) {
+        /*      $("#character").css({
+                  "background-position": "center",
+                  "background-size": "cover",
+                  "width ":"100px",
+                  "height":"200px"
+
+              });*/
+
+
+        /*$("#character>img").css({
+            "width": "200px",
+            "height": "200px"
+
+
+        })*/
+
+    }
+
+
+    /* function keyCheck(event){
+         var key = event.keyCode;
+
+         if(key == 32){
+             if(run == 0){
+                 run = setInterval(run,100);
+             }
+         }
+     }*/
+    // $(selector).stop(stopAll,goToEnd);
+    $("#txtId").on('keydown', function (event) {
         if (event.keyCode == 32) {
-            // $("#character").css("animation-name", my-animation3)
-            /*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
-               $("#character").animate({top: "0px"});*/
-            $("#character").css({"animation-name": "my-animation3","animation-direction":"normal","animation-iteration-count" :"1"})
+            /*    $("#character").css({
+                    "animation-name": "my-animation3",
+                    "animation-iteration-count": "infinite",
+                    "animation-direction": "normal",
+                    "animation-duration": "1s"
+                })*/
 
-            sample = setTimeout(a,1000)
 
         }
 
     });
-    $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
+    /*  function a(){
+          clearTimeout(a,sample);
+          $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
+
+      }*/
+
+    /* $("#txtId").on('keyup', function (event) {
+         if (event.keyCode == 32) {
+             // $("#character").css("animation-name", my-animation3)
+             /!*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
+                $("#character").animate({top: "0px"});*!/
+             $("#character").css({"animation-name": "my-animation3","animation-direction":"normal","animation-iteration-count" :"1"})
+
+             sample = setTimeout(a,1000)
+
+         }
+
+     });*/
+    // $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
 
 
 </script>
