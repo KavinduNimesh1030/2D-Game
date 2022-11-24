@@ -65,12 +65,8 @@
             position: relative;
             display: flex;
             position: relative;
-            transform: translate(558px, 442px);
-            animation-name: my-animation;
-            animation-duration: 9s;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-timing-function: linear;
+            transform: translate(1350px, 442px);
+
             justify-content: space-between;
 
 
@@ -79,7 +75,7 @@
         #fireSec > div {
             width: 70px;
             height: 70px;
-            margin-right: -4000px;
+            margin-right: -20000px;
             background: url("assets/img/fire.gif");
             background-size: cover;
             background-position: center;
@@ -285,14 +281,7 @@
 
     </Section>
     <section id="fireSec">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+
 
     </section>
 
@@ -305,30 +294,51 @@
     var sample = 0;
     var runTime = 0;
     var bgTime =0;
+    var fireTime =0;
     var chForwardTime =0;
     var count = 1;
     var BgLeft = 0;
     var ChLeft = 0;
-    var jumpCount = 0;
+    var fireLeft = 0;
+    var jumpCount = 1;
+    var idleCount =1;
+    var enterCount = 0;
 
 
-    $(document).keypress(function(event){
+    $(document).keydown(function(event){
+        var x = 27;
         var keycode = (event.keyCode ? event.keyCode : event.which);
+
         if(keycode == '13'){
             clearInterval(runTime)
             clearInterval(bgTime)
             clearInterval(chForwardTime)
+            clearInterval(fireTime)
             bgTime = setInterval(backGroundAnimation,10)
             chForwardTime =setInterval(characterForward,300)
             runTime = setInterval(run, 100);
+            fireTime = setInterval(fireSecForward,10);
+            if(enterCount==0){
+                addFire();
+                enterCount++;
+            }
         }else if(keycode == '32'){
             clearInterval(runTime)
             jump();
             clearInterval(jumpTime)
             jumpTime = setInterval(jumpHigh,100);
 
+        }else if(keycode == '27'){
+            setInterval(idle,3);
+
+
+
         }
     });
+    document.onkeydown = function (event) {
+        console.log(event.keyCode);
+
+    }
 
 
 
@@ -353,6 +363,19 @@
         ChLeft = ChLeft+(5);
         $('#characterOuter').css("left",ChLeft);
     }
+
+    function fireSecForward(){
+        fireLeft = fireLeft+(-3);
+        $('#fireSec').css("left",fireLeft);
+    }
+
+
+    function addFire(){
+        for (let i = 0; i < 34; i++) {
+            $('#fireSec').append(`<div></div>`);
+        }
+
+    }
     var jumpTime = 1;
 
     function jumpHigh() {
@@ -368,10 +391,6 @@
 
 
     function jump(){
-      /*  $("#characterOuter").animate({top: "-150px"  ,time: '200s'},"fast");
-        $("#characterOuter").animate({top: "0px",time: '200s'},"fast");*/
-
-
 
         $( "#characterOuter" ).animate({
             top: "-100px"
@@ -392,6 +411,7 @@
 
         //$('#characterOuter').css("top","-80px");
     }
+   
     // $(selector).stop(stopAll,goToEnd);
     /*  function a(){
           clearTimeout(a,sample);
