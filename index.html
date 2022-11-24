@@ -411,7 +411,22 @@
 
         //$('#characterOuter').css("top","-80px");
     }
-   
+    function idle(){
+
+        clearInterval(runTime);
+        clearInterval(jumpTime);
+        clearInterval(bgTime);
+        clearInterval(fireTime);
+        clearInterval(chForwardTime);
+
+        var imageUrl = "assets/img/idle (" + count + ").png"
+        $('#character').attr("src",imageUrl);
+
+        if(idleCount == 10){
+            idleCount = 1;
+        }
+        idleCount++;
+    }
     // $(selector).stop(stopAll,goToEnd);
     /*  function a(){
           clearTimeout(a,sample);
