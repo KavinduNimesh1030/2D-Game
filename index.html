@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width initial-scale=1" name="viewport">
     <link href="assets/css/normalize.css" rel="stylesheet">
+
     <title>Game</title>
     <style>
         main {
@@ -71,207 +72,40 @@
 
 
         }
+    /*    #drop{
+            width: 50px;
+            height: 50px;
+            border: 4px solid black;
+            position: absolute;
+            z-index: 4;
+            transform: translate(218px, 423px);
+
+        }*/
 
         #fireSec > div {
             width: 70px;
             height: 70px;
             margin-right: -20000px;
-            background: url("assets/img/fire.gif");
+            background: url("assets/img/output-onlinegiftools.gif");
             background-size: cover;
             background-position: center;
 
-        }
 
-
-        @keyframes my-animation {
-            0% {
-                left: 0;
-
-            }
-            25% {
-                left: -800px;
-
-            }
-            50% {
-                left: -1600px;
-            }
-            75% {
-                left: -2400px;
-            }
-            100% {
-                left: -3200px;
-
-            }
-
-        }
-
-        /*   @keyframes my-animation1 {
-               0% {
-
-                   background: url("assets/img/Run (1).png");
-                   background-position: center;
-                   background-size: cover;
-               }
-               15% {
-
-                   background: url("assets/img/Run (2).png");
-                   background-position: center;
-                   background-size: cover;
-
-               }
-               30% {
-
-                   background: url("assets/img/Run (3).png");
-                   background-position: center;
-                   background-size: cover;
-               }
-               45% {
-
-                   background: url("assets/img/Run (4).png");
-                   background-position: center;
-                   background-size: cover;
-               }
-               60% {
-
-                     background: url("assets/img/Run (5).png");
-                     background-position: center;
-                     background-size: cover;
-                 }
-               75% {
-
-                   background: url("assets/img/Run (6).png");
-                   background-position: center;
-                   background-size: cover;
-               }
-               90% {
-
-                   background: url("assets/img/Run (7).png");
-                   background-position: center;
-                   background-size: cover;
-               }
-               100% {
-
-                   background: url("assets/img/Run (8).png");
-                   background-position: center;
-                   background-size: cover;
-               }
-
-           }*/
-        @keyframes my-animation2 {
-            0% {
-                left: 0;
-            }
-            10% {
-                left: 100px;
-
-            }
-            20% {
-                left: 200px;
-
-            }
-            30% {
-                left: 350px;
-
-            }
-            40% {
-                left: 550px;
-
-            }
-            50% {
-                left: 650px;
-
-            }
-            60% {
-                left: 710px;
-            }
-            70% {
-                left: 800px;
-
-            }
-            80% {
-                left: 800px;
-
-            }
-            90% {
-                left: 900px;
-
-            }
-            100% {
-                left: 1000px;
-            }
-
-        }
-
-        @keyframes my-animation3 {
-            0% {
-                top: 0px;
-            }
-            10% {
-                background: url("assets/img/Jump (1).png");
-                background-position: center;
-                background-size: cover;
-            }
-            20% {
-                background: url("assets/img/Jump (2).png");
-                background-position: center;
-                background-size: cover;
-            }
-            30% {
-                background: url("assets/img/Jump (3).png");
-                background-position: center;
-                background-size: cover;
-            }
-            40% {
-                background: url("assets/img/Jump (4).png");
-                background-position: center;
-                background-size: cover;
-            }
-            50% {
-                top: -50px;
-                background: url("assets/img/Jump (5).png");
-                background-position: center;
-                background-size: cover;
-            }
-            60% {
-
-                background: url("assets/img/Jump (6).png");
-                background-position: center;
-                background-size: cover;
-            }
-            70% {
-
-                background: url("assets/img/Jump (7).png");
-                background-position: center;
-                background-size: cover;
-            }
-            80% {
-
-                background: url("assets/img/Jump (8).png");
-                background-position: center;
-                background-size: cover;
-            }
-            90% {
-
-                background: url("assets/img/Jump (9).png");
-                background-position: center;
-                background-size: cover;
-            }
-            100% {
-                top: -70px;
-                background: url("assets/img/Jump (10).png");
-                background-position: center;
-                background-size: cover;
-
-            }
         }
 
     </style>
 </head>
 <body>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
+<script src="assets/js/oridomi.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
 <main>
     <div id="characterOuter">
         <img  src="assets/img/Run%20(1).png" id="character">
+
+            <div id="drop">
+
+            </div>
 
 
         </img>
@@ -284,6 +118,9 @@
 
 
     </section>
+    <box>
+
+    </box>
 
 </main>
 
@@ -296,6 +133,7 @@
     var bgTime =0;
     var fireTime =0;
     var chForwardTime =0;
+    var idleTime =0;
     var count = 1;
     var BgLeft = 0;
     var ChLeft = 0;
@@ -304,6 +142,24 @@
     var idleCount =1;
     var enterCount = 0;
 
+    $(document).ready(function () {
+     /*   $( function() {
+            $("#drop" ).draggable();
+            $("#fireSec" ).droppable({
+                drop: function( event, ui ) {
+                    alert("aa");
+                    $( this )
+                        .addClass( "ui-state-highlight" )
+                        .find( "p" )
+                        .html( "Dropped!" );
+
+                }
+            });
+        } );*/
+
+        var margT = $('#characterOuter').outerWidth(true) - $('#characterOuter').outerWidth();
+        console.log(margT)
+    })
 
     $(document).keydown(function(event){
         var x = 27;
@@ -314,6 +170,8 @@
             clearInterval(bgTime)
             clearInterval(chForwardTime)
             clearInterval(fireTime)
+            clearInterval(idleTime)
+
             bgTime = setInterval(backGroundAnimation,10)
             chForwardTime =setInterval(characterForward,300)
             runTime = setInterval(run, 100);
@@ -329,7 +187,7 @@
             jumpTime = setInterval(jumpHigh,100);
 
         }else if(keycode == '27'){
-            setInterval(idle,3);
+            idleTime = setInterval(idle,80);
 
 
 
@@ -339,6 +197,7 @@
         console.log(event.keyCode);
 
     }
+
 
 
 
@@ -419,7 +278,7 @@
         clearInterval(fireTime);
         clearInterval(chForwardTime);
 
-        var imageUrl = "assets/img/idle (" + count + ").png"
+        var imageUrl = "assets/img/idle (" + idleCount + ").png"
         $('#character').attr("src",imageUrl);
 
         if(idleCount == 10){
@@ -427,6 +286,9 @@
         }
         idleCount++;
     }
+
+
+
     // $(selector).stop(stopAll,goToEnd);
     /*  function a(){
           clearTimeout(a,sample);

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="assets/js/oridomi.min.js"></script>
+  <script src="assets/js/jquery-3.6.1.min.js"></script>
+  <script src="assets/js/jquery-ui.min.js"></script>
+  <style>
+    main>section:first-child{
+      width: 90px;
+      height: 90px;
+      border: 2px solid black;
+    }
+    main>section:nth-child(2){
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section>
+
+  </section>
+  <section>
+
+  </section>
+</main>
+<script>
+
+  $( function() {
+    $("section").draggable();
+    $( "section" ).droppable({
+      drop: function( event, ui ) {
+        alert("aaaa")
+        $( this )
+                .addClass( "ui-state-highlight" )
+                .find( "p" )
+                .html( "Dropped!" );
+
+      }
+    });
+  } );
+</script>
+</body>
+</html>
