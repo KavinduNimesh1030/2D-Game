@@ -86,7 +86,7 @@
             width: 70px;
             height: 70px;
             margin-right: -20000px;
-            background: url("assets/img/output-onlinegiftools.gif");
+            background: url("assets/img/f2.gif");
             background-size: cover;
             background-position: center;
 
@@ -157,9 +157,13 @@
             });
         } );*/
 
-        var margT = $('#characterOuter').outerWidth(true) - $('#characterOuter').outerWidth();
-        console.log(margT)
+        var margT = $('#characterOuter>div').outerWidth(true) - $('#characterOuter').outerWidth();
+        console.log("m :" +margT)
+            xa();
+
     })
+
+
 
     $(document).keydown(function(event){
         var x = 27;
@@ -187,6 +191,7 @@
             jumpTime = setInterval(jumpHigh,100);
 
         }else if(keycode == '27'){
+            clearInterval(idleTime);
             idleTime = setInterval(idle,80);
 
 
@@ -210,6 +215,8 @@
         $('#character').attr("src",imageUrl);
         count++;
 
+
+
     }
 
 
@@ -231,9 +238,14 @@
 
     function addFire(){
         for (let i = 0; i < 34; i++) {
-            $('#fireSec').append(`<div></div>`);
+            $('#fireSec').append(`<div id="snake"></div>`);
         }
 
+    }
+
+    function xa(){
+        var margT = $('#snake').outerWidth(true) - $('#characterOuter').outerWidth();
+        console.log(margT)
     }
     var jumpTime = 1;
 
@@ -250,6 +262,7 @@
 
 
     function jump(){
+        xa();
 
         $( "#characterOuter" ).animate({
             top: "-100px"
@@ -264,8 +277,11 @@
 
 
         });
-        clearInterval(runTime)
-        runTime =setInterval(run,100);
+        if(enterCount>0){
+            clearInterval(runTime)
+            runTime =setInterval(run,100);
+        }
+
 
 
         //$('#characterOuter').css("top","-80px");
