@@ -95,18 +95,37 @@
         #score{
             display: flex;
             width: 200px;
-            height: 40px;
+            height: 18px;
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 123px;
+            left: 32px;
             margin: auto;
-            border: 5px solid black;
+            border: 5px solid #521b06;
+            opacity: 70%;
             z-index: 4;
         }
         #score>div{
             width: 20px;
-            height: 40px;
+            height: 18px;
             background-color: red;
+        }
+        #scoreBG{
+            width: 360px;
+            height: 200px;
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            margin: auto;
+            z-index: 4;
+            background: url("assets/img/ScoreBoard.png");
+            background-position: center;
+            background-size: cover;
+        }
+        #scoreBG>h1{
+            margin-top: 85px;
+            margin-left: 34px;
+            color: #320d02;
+
         }
 
 
@@ -117,9 +136,13 @@
 <script src="assets/js/oridomi.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
 <main>
-    <section id="score">
+    <section id="scoreBG">
+        <h1 id="lblScore">Score : 0</h1>
+        <section id="score">
 
+        </section>
     </section>
+
     <div id="characterOuter">
         <img  src="assets/img/Run%20(1).png" id="character">
 
@@ -164,6 +187,7 @@
     var enterCount = 0;
     var deadCount = 1;
     var isDead = true;
+    var liveScore = 0;
 
     $(document).ready(function () {
 
@@ -202,7 +226,7 @@
     }
 
 
-    const deadArray = ["60","95","125","160","195","230","265","295","335","365"];
+    const deadArray = ["60","95","125","160","195","230","265","295","330","365"];
     const scoreArray = deadArray.slice()
 
 
@@ -257,6 +281,9 @@
             if(x>scoreArray[0]){
                 scoreArray.shift();
                 $('#score').append(`<div></div>`);
+                liveScore = liveScore+100;
+                var score = "Score : "+liveScore;
+                $('#lblScore').text(score);
             }
 
 
