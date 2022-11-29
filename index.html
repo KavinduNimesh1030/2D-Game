@@ -92,6 +92,23 @@
 
 
         }
+        #score{
+            display: flex;
+            width: 200px;
+            height: 40px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            margin: auto;
+            border: 5px solid black;
+            z-index: 4;
+        }
+        #score>div{
+            width: 20px;
+            height: 40px;
+            background-color: red;
+        }
+
 
     </style>
 </head>
@@ -100,6 +117,9 @@
 <script src="assets/js/oridomi.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
 <main>
+    <section id="score">
+
+    </section>
     <div id="characterOuter">
         <img  src="assets/img/Run%20(1).png" id="character">
 
@@ -183,9 +203,7 @@
 
 
     const deadArray = ["60","95","125","160","195","230","265","295","335","365"];
-
-
-
+    const scoreArray = deadArray.slice()
 
 
     $(document).keydown(function(event){
@@ -232,6 +250,18 @@
 
         }
     });
+
+    function scoreCheck(){
+        var x = $("#characterOuter").offset().left;
+
+            if(x>scoreArray[0]){
+                scoreArray.shift();
+                $('#score').append(`<div></div>`);
+            }
+
+
+    }
+
     function dead(){
         var x = $("#characterOuter").offset().left;
         var y = $("#characterOuter").offset().top;
@@ -345,6 +375,7 @@
         $( "#characterOuter" ).animate({
             top: "0px"
         }, 400, function() {
+            scoreCheck();
             clearInterval(jumpTime)
 
 
