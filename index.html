@@ -134,6 +134,7 @@
     var fireTime =0;
     var chForwardTime =0;
     var idleTime =0;
+    var deadTime = 0;
     var count = 1;
     var BgLeft = 0;
     var ChLeft = 0;
@@ -141,8 +142,11 @@
     var jumpCount = 1;
     var idleCount =1;
     var enterCount = 0;
+    var deadCount = 1;
+    var isDead = true;
 
     $(document).ready(function () {
+
      /*   $( function() {
             $("#drop" ).draggable();
             $("#fireSec" ).droppable({
@@ -156,12 +160,31 @@
                 }
             });
         } );*/
-
+/*
         var margT = $('#characterOuter>div').outerWidth(true) - $('#characterOuter').outerWidth();
         console.log("m :" +margT)
             xa();
 
-    })
+        $('#fireSec>div').find("#characterOuter").css("display","none");*/
+
+
+
+
+
+    });
+
+    function getPosition(){
+        var x = $("#characterOuter").offset().left;
+        var y = $("#characterOuter").offset().top;
+
+        console.log("x :"+ x);
+        console.log("y :"+ y);
+    }
+
+
+    const deadArray = ["60","95","125","160","195","230","265","295","335","365"];
+
+
 
 
 
@@ -169,17 +192,25 @@
         var x = 27;
         var keycode = (event.keyCode ? event.keyCode : event.which);
 
+
         if(keycode == '13'){
+
             clearInterval(runTime)
             clearInterval(bgTime)
             clearInterval(chForwardTime)
             clearInterval(fireTime)
             clearInterval(idleTime)
 
+
+
+
+            deadCount = setInterval(dead,0);
             bgTime = setInterval(backGroundAnimation,10)
             chForwardTime =setInterval(characterForward,300)
             runTime = setInterval(run, 100);
             fireTime = setInterval(fireSecForward,10);
+
+            getPosition();
             if(enterCount==0){
                 addFire();
                 enterCount++;
@@ -189,17 +220,53 @@
             jump();
             clearInterval(jumpTime)
             jumpTime = setInterval(jumpHigh,100);
+            getPosition();
+
 
         }else if(keycode == '27'){
             clearInterval(idleTime);
             idleTime = setInterval(idle,80);
+            getPosition();
 
 
 
         }
     });
+    function dead(){
+        var x = $("#characterOuter").offset().left;
+        var y = $("#characterOuter").offset().top;
+          for (const p of deadArray) {
+        if(x == p && y == 0){
+
+            clearInterval(runTime);
+            clearInterval(jumpTime);
+            clearInterval(bgTime);
+            clearInterval(fireTime);
+            clearInterval(chForwardTime);
+
+            deadAniTime = setTimeout(deadAnimation,100);
+            clearInterval(deadCount);
+
+
+        }
+
+         }
+    }
     document.onkeydown = function (event) {
         console.log(event.keyCode);
+
+    }
+
+    function  deadAnimation(){
+
+        var imageUrl = "assets/img/Dead (" + deadCount + ").png"
+        if (deadCount == 10) {
+            deadCount = 1;
+        }
+        $('#character').attr("src",imageUrl);
+        deadCount++;
+
+
 
     }
 
@@ -239,7 +306,13 @@
     function addFire(){
         for (let i = 0; i < 34; i++) {
             $('#fireSec').append(`<div id="snake"></div>`);
+
         }
+        var x = $("#fireSec>div").offset().left;
+        var y = $("#snake").offset().top;
+
+        console.log("snake x :"+ x);
+        console.log("snake y :"+ y);
 
     }
 
