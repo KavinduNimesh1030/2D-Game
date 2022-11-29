@@ -212,9 +212,6 @@
         $('#fireSec>div').find("#characterOuter").css("display","none");*/
 
 
-
-
-
     });
 
     function getPosition(){
@@ -242,8 +239,6 @@
             clearInterval(chForwardTime)
             clearInterval(fireTime)
             clearInterval(idleTime)
-
-
 
 
             deadCount = setInterval(dead,0);
@@ -309,10 +304,7 @@
 
          }
     }
-    document.onkeydown = function (event) {
-        console.log(event.keyCode);
 
-    }
 
     function  deadAnimation(){
 
@@ -338,7 +330,6 @@
         }
         $('#character').attr("src",imageUrl);
         count++;
-
 
 
     }
@@ -373,10 +364,7 @@
 
     }
 
-    function xa(){
-        var margT = $('#snake').outerWidth(true) - $('#characterOuter').outerWidth();
-        console.log(margT)
-    }
+
     var jumpTime = 1;
 
     function jumpHigh() {
@@ -392,7 +380,6 @@
 
 
     function jump(){
-        xa();
 
         $( "#characterOuter" ).animate({
             top: "-100px"
