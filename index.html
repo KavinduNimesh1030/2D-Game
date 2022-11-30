@@ -127,6 +127,17 @@
             color: #320d02;
 
         }
+        #mainBoard{
+            width: 500px;
+            height: 600px;
+            position: absolute;
+            z-index: 6;
+            transform: translate(420px,20px);
+            background: url("assets/img/MainBoard.png");
+            background-position: center;
+            background-size: cover;
+
+        }
 
 
     </style>
@@ -136,6 +147,7 @@
 <script src="assets/js/oridomi.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
 <main>
+    <section id="mainBoard"></section>
     <section id="scoreBG">
         <h1 id="lblScore">Score : 0</h1>
         <section id="score">
