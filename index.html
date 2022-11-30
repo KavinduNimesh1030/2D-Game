@@ -190,7 +190,7 @@
     var isDead = true;
     var liveScore = 0;
 
-    const deadArray = ["60","95","130","160","195","230","265","295","330","365"];
+    const deadArray = ["60","95","130","160","195","230","265","295","330","365","400","435","465","500"];
     const scoreArray = deadArray.slice()
 
     $(document).ready(function () {
@@ -246,16 +246,11 @@
             clearInterval(fireTime)
             clearInterval(idleTime)
 
-
-
-
            deadTime = setInterval(dead,0);
             bgTime = setInterval(backGroundAnimation,10)
             chForwardTime =setInterval(characterForward,300)
             runTime = setInterval(run, 100);
             fireTime = setInterval(fireSecForward,10);
-
-
 
             getPosition();
             if(enterCount==0){
@@ -298,6 +293,11 @@
                 var score = "Score : "+liveScore;
 
                 $('#lblScore').text(score);
+
+                if(liveScore==1000){
+                   levelTwo();
+
+                }
             }
 
 
@@ -330,10 +330,7 @@
 
          }
     }
-    document.onkeydown = function (event) {
-        console.log(event.keyCode);
 
-    }
 
     function  deadAnimation(){
 
@@ -346,10 +343,7 @@
         deadCount++;
 
 
-
     }
-
-
 
 
     function run() {
@@ -478,6 +472,16 @@
 
      });*/
     // $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
+
+    function levelTwo(){
+      /*  var imageUrl = "assets/img/bg2.jpg";
+        $("#mainSec").css("background-image", "url(" + imageUrl + ")");
+        clearInterval(bgTime);
+        clearInterval(fireTime)
+        setInterval(backGroundAnimation,7);
+        setInterval(fireSecForward,7)*/
+         document.location ='level2.html';
+    }
 
 
 </script>
