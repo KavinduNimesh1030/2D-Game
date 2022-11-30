@@ -178,6 +178,7 @@
     var chForwardTime =0;
     var idleTime =0;
     var deadTime = 0;
+    var deadAniTime =0;
     var count = 1;
     var BgLeft = 0;
     var ChLeft = 0;
@@ -188,6 +189,9 @@
     var deadCount = 1;
     var isDead = true;
     var liveScore = 0;
+
+    const deadArray = ["60","95","130","160","195","230","265","295","330","365"];
+    const scoreArray = deadArray.slice()
 
     $(document).ready(function () {
 
@@ -212,6 +216,9 @@
         $('#fireSec>div').find("#characterOuter").css("display","none");*/
 
 
+
+
+
     });
 
     function getPosition(){
@@ -223,8 +230,7 @@
     }
 
 
-    const deadArray = ["60","95","125","160","195","230","265","295","330","365"];
-    const scoreArray = deadArray.slice()
+
 
 
     $(document).keydown(function(event){
@@ -241,11 +247,15 @@
             clearInterval(idleTime)
 
 
-            deadCount = setInterval(dead,0);
+
+
+           deadTime = setInterval(dead,0);
             bgTime = setInterval(backGroundAnimation,10)
             chForwardTime =setInterval(characterForward,300)
             runTime = setInterval(run, 100);
             fireTime = setInterval(fireSecForward,10);
+
+
 
             getPosition();
             if(enterCount==0){
@@ -265,10 +275,18 @@
             idleTime = setInterval(idle,80);
             getPosition();
 
+            var x = $("#characterOuter").offset().left;
+            var y = $("#snake").offset().top;
+
+            console.log("Chare x :"+ x);
+            console.log("snake y :"+ y);
+
+
 
 
         }
     });
+
 
     function scoreCheck(){
         var x = $("#characterOuter").offset().left;
@@ -278,39 +296,51 @@
                 $('#score').append(`<div></div>`);
                 liveScore = liveScore+100;
                 var score = "Score : "+liveScore;
+
                 $('#lblScore').text(score);
             }
 
 
     }
 
+
     function dead(){
         var x = $("#characterOuter").offset().left;
         var y = $("#characterOuter").offset().top;
           for (const p of deadArray) {
-        if(x == p && y == 0){
+              /*for (let i = 0; i <20; i++) {*/
+                  if(x == p && y == 0){
 
-            clearInterval(runTime);
-            clearInterval(jumpTime);
-            clearInterval(bgTime);
-            clearInterval(fireTime);
-            clearInterval(chForwardTime);
+                      clearInterval(runTime);
+                      clearInterval(jumpTime);
+                      clearInterval(bgTime);
+                      clearInterval(fireTime);
+                      clearInterval(chForwardTime);
 
-            deadAniTime = setTimeout(deadAnimation,100);
-            clearInterval(deadCount);
+                      deadAniTime = setInterval(deadAnimation,100);
+                      clearInterval(deadTime);
 
 
-        }
+
+
+                  }
+
+              //}
+
 
          }
     }
+    document.onkeydown = function (event) {
+        console.log(event.keyCode);
 
+    }
 
     function  deadAnimation(){
 
         var imageUrl = "assets/img/Dead (" + deadCount + ").png"
         if (deadCount == 10) {
             deadCount = 1;
+            clearInterval(deadAniTime)
         }
         $('#character').attr("src",imageUrl);
         deadCount++;
@@ -330,6 +360,7 @@
         }
         $('#character').attr("src",imageUrl);
         count++;
+
 
 
     }
@@ -364,11 +395,14 @@
 
     }
 
-
+    function xa(){
+        var margT = $('#snake').outerWidth(true) - $('#characterOuter').outerWidth();
+        console.log(margT)
+    }
     var jumpTime = 1;
 
     function jumpHigh() {
-        var imageUrl = "assets/img/Jump (" + count + ").png"
+        var imageUrl = "assets/img/Jump (" + jumpCount + ").png"
         $('#character').attr("src",imageUrl);
 
         if(jumpCount == 10){
@@ -380,6 +414,7 @@
 
 
     function jump(){
+        xa();
 
         $( "#characterOuter" ).animate({
             top: "-100px"
