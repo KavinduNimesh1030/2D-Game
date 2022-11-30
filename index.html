@@ -131,11 +131,55 @@
             width: 500px;
             height: 600px;
             position: absolute;
+            display: flex;
             z-index: 6;
             transform: translate(420px,20px);
-            background: url("assets/img/MainBoard.png");
+            background: url("assets/img/DB.png");
             background-position: center;
             background-size: cover;
+
+        }
+        #mainBoard>div{
+            width: 140px;
+            height: 140px;
+            background: url(assets/img/star.png);
+            background-position: center;
+            background-size: cover;
+            transform: translate(87px, 228px);
+
+        }
+        #mainBoard>div:nth-child(2){
+            transform: translate(45px, 199px);
+        }
+        #mainBoard>div:nth-child(3){
+            transform: translate(2px, 225px);
+        }
+        #coin{
+            width: 30px;
+            height: 30px;
+            transform: translate(-198px, 366px);
+
+        }
+        #hart{
+            width: 30px;
+            height: 30px;
+            transform: translate(-226px, 432px);
+
+        }
+        #btnNext{
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            transform: translate(202px, 527px);
+            outline-color: transparent;
+            outline-style:solid;
+            box-shadow: 0 0 0 4px #320d02;
+            transition: 0.7s;
+            background-color: green;
+            border-radius: 10px;
+            font-size: 18px;
+            font-style: oblique;
+
 
         }
 
@@ -147,7 +191,16 @@
 <script src="assets/js/oridomi.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
 <main>
-    <section id="mainBoard"></section>
+    <section id="mainBoard">
+        <div id="star1"></div>
+        <div id="star2"></div>
+        <div id="star3"></div>
+
+        <img src="assets/img/coine.png" id="coin" alt="">
+        <img src="assets/img/hart.png" id="hart" alt="">
+
+        <button id="btnNext">Next</button>
+    </section>
     <section id="scoreBG">
         <h1 id="lblScore">Score : 0</h1>
         <section id="score">
