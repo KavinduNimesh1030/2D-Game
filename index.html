@@ -137,6 +137,7 @@
             background: url("assets/img/DB.png");
             background-position: center;
             background-size: cover;
+           opacity: 0%;
 
         }
         #mainBoard>div{
@@ -258,6 +259,8 @@
     const deadArray = ["60","95","130","160","195","230","265","295","330","365","400","435","465","500"];
     const scoreArray = deadArray.slice()
 
+
+
     $(document).ready(function () {
 
      /*   $( function() {
@@ -360,13 +363,17 @@
                 $('#lblScore').text(score);
 
                 if(liveScore==1000){
-                   levelTwo();
+                    $("#mainBoard").css("opacity","100%");
+                  // levelTwo();
 
                 }
             }
 
 
     }
+    $("#btnNext").click(function () {
+        levelTwo();
+    });
 
 
     function dead(){
