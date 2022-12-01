@@ -32,6 +32,7 @@
 
             position: fixed;
             transform: translate(125px, 309px);
+            display: none;
             /* background: url("assets/img/Run (1).png");*/
           /*  background-position: center;
             background-size: cover;*/
@@ -120,6 +121,7 @@
             background: url("assets/img/ScoreBoard.png");
             background-position: center;
             background-size: cover;
+            display: none;
         }
         #scoreBG>h1{
             margin-top: 85px;
@@ -203,6 +205,27 @@
             transform: translate(279px, 407px);
             color: #320d02;
         }
+        #startMenu{
+            position: absolute;
+            width: 800px;
+            height: 640px;
+            z-index: 7;
+            transform: translate(287px,20px);
+            background: url("assets/img/Start Menu.png");
+            background-size: cover;
+            background-position: center;
+
+        }
+        #btnStart{
+            position: absolute;
+            width: 174px;
+            height: 67px;
+            transform: translate(315px,532px);
+            background-color: transparent;
+            border: 0px;
+        }
+
+
 
 
 
@@ -215,6 +238,9 @@
 <script src="assets/js/oridomi.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
 <main>
+    <section id="startMenu">
+        <button id="btnStart"></button>
+    </section>
     <section id="mainBoard">
         <div id="star1"></div>
         <div id="star2"></div>
@@ -388,6 +414,12 @@
         }
     });
 
+    $("#btnStart").click(function () {
+        $("#startMenu").css("display","none");
+        $("#scoreBG").css("display","inline");
+        $("#character").css("display","inline");
+    });
+
 
     function scoreCheck(){
         var x = $("#characterOuter").offset().left;
@@ -425,10 +457,9 @@
                       clearInterval(runTime);
                       clearInterval(jumpTime);
                       clearInterval(chForwardTime);
-                      /*clearInterval(bgTime);
+                      clearInterval(bgTime);
                       clearInterval(fireTime);
 
-*/
 
                       deadAniTime = setInterval(deadAnimation,100);
                       clearInterval(deadTime);
