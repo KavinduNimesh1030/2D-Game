@@ -183,6 +183,29 @@
 
 
         }
+        #lblScoreBoard{
+            position: absolute;
+            transform: translate(118px, 342px);
+            color: #320d02;
+        }
+        #lblScoreCount{
+            position: absolute;
+            transform: translate(275px, 341px);
+            color: #320d02;
+        }
+        #lblGemsBoard{
+            position: absolute;
+            transform: translate(118px, 404px);
+            color: #320d02;
+        }
+        #lblGemsCount{
+            position: absolute;
+            transform: translate(279px, 407px);
+            color: #320d02;
+        }
+
+
+
 
 
     </style>
@@ -201,6 +224,12 @@
         <img src="assets/img/hart.png" id="hart" alt="">
 
         <button id="btnNext">Next</button>
+
+        <h1 id="lblScoreBoard">Score</h1>
+        <h1 id="lblScoreCount">1000</h1>
+
+        <h1 id="lblGemsBoard">Gems</h1>
+        <h1 id="lblGemsCount">locked</h1>
     </section>
     <section id="scoreBG">
         <h1 id="lblScore">Score : 0</h1>
@@ -253,17 +282,18 @@
     var idleCount =1;
     var enterCount = 0;
     var deadCount = 1;
-    var isDead = true;
+    var isDead = false;
     var liveScore = 0;
+    var jumpTime = 0;
 
     const deadArray = ["60","95","130","160","195","230","265","295","330","365","400","435","465","500"];
     const scoreArray = deadArray.slice()
 
-
+/*
 
     $(document).ready(function () {
 
-     /*   $( function() {
+     /!*   $( function() {
             $("#drop" ).draggable();
             $("#fireSec" ).droppable({
                 drop: function( event, ui ) {
@@ -275,74 +305,82 @@
 
                 }
             });
-        } );*/
-/*
+        } );*!/
+/!*
         var margT = $('#characterOuter>div').outerWidth(true) - $('#characterOuter').outerWidth();
         console.log("m :" +margT)
             xa();
 
-        $('#fireSec>div').find("#characterOuter").css("display","none");*/
+        $('#fireSec>div').find("#characterOuter").css("display","none");*!/
 
 
 
 
 
-    });
+    });*/
 
-    function getPosition(){
+
+
+
+   /* function getPosition(){
         var x = $("#characterOuter").offset().left;
         var y = $("#characterOuter").offset().top;
 
         console.log("x :"+ x);
         console.log("y :"+ y);
-    }
+    }*/
 
 
 
 
 
     $(document).keydown(function(event){
-        var x = 27;
+      /*  var x = 27;*/
         var keycode = (event.keyCode ? event.keyCode : event.which);
 
 
         if(keycode == '13'){
 
-            clearInterval(runTime)
-            clearInterval(bgTime)
-            clearInterval(chForwardTime)
-            clearInterval(fireTime)
-            clearInterval(idleTime)
+            clearInterval(runTime);
+            clearInterval(bgTime);
+            clearInterval(chForwardTime);
+            clearInterval(fireTime);
+            clearInterval(idleTime);
+            clearInterval(deadTime);
 
-           deadTime = setInterval(dead,0);
-            bgTime = setInterval(backGroundAnimation,10)
-            chForwardTime =setInterval(characterForward,300)
+
+            bgTime = setInterval(backGroundAnimation,10);
+            chForwardTime =setInterval(characterForward,300);
             runTime = setInterval(run, 100);
+            deadTime = setInterval(dead,0);
             fireTime = setInterval(fireSecForward,10);
 
-            getPosition();
+           // getPosition();
             if(enterCount==0){
                 addFire();
                 enterCount++;
             }
         }else if(keycode == '32'){
-            clearInterval(runTime)
-            jump();
-            clearInterval(jumpTime)
-            jumpTime = setInterval(jumpHigh,100);
-            getPosition();
+            if(!isDead){
+                clearInterval(runTime);
+                jump();
+                clearInterval(jumpTime);
+                jumpTime = setInterval(jumpHigh,100);
+            }
+
+            /*getPosition();*/
 
 
         }else if(keycode == '27'){
             clearInterval(idleTime);
             idleTime = setInterval(idle,80);
-            getPosition();
+          /*  getPosition();
 
             var x = $("#characterOuter").offset().left;
             var y = $("#snake").offset().top;
 
             console.log("Chare x :"+ x);
-            console.log("snake y :"+ y);
+            console.log("snake y :"+ y);*/
 
 
 
@@ -382,12 +420,15 @@
           for (const p of deadArray) {
               /*for (let i = 0; i <20; i++) {*/
                   if(x == p && y == 0){
+                      isDead = true;
 
                       clearInterval(runTime);
                       clearInterval(jumpTime);
-                      clearInterval(bgTime);
-                      clearInterval(fireTime);
                       clearInterval(chForwardTime);
+                      /*clearInterval(bgTime);
+                      clearInterval(fireTime);
+
+*/
 
                       deadAniTime = setInterval(deadAnimation,100);
                       clearInterval(deadTime);
@@ -406,10 +447,10 @@
 
     function  deadAnimation(){
 
-        var imageUrl = "assets/img/Dead (" + deadCount + ").png"
+        var imageUrl = "assets/img/Dead (" + deadCount + ").png";
         if (deadCount == 10) {
             deadCount = 1;
-            clearInterval(deadAniTime)
+            clearInterval(deadAniTime);
         }
         $('#character').attr("src",imageUrl);
         deadCount++;
@@ -420,7 +461,7 @@
 
     function run() {
 
-        var imageUrl = "assets/img/Run (" + count + ").png"
+        var imageUrl = "assets/img/Run (" + count + ").png";
         if (count == 8) {
             count = 1;
         }
@@ -453,11 +494,11 @@
             $('#fireSec').append(`<div id="snake"></div>`);
 
         }
-        var x = $("#fireSec>div").offset().left;
+     /*   var x = $("#fireSec>div").offset().left;
         var y = $("#snake").offset().top;
 
         console.log("snake x :"+ x);
-        console.log("snake y :"+ y);
+        console.log("snake y :"+ y);*/
 
     }
 
@@ -465,7 +506,7 @@
         var margT = $('#snake').outerWidth(true) - $('#characterOuter').outerWidth();
         console.log(margT)
     }
-    var jumpTime = 1;
+
 
     function jumpHigh() {
         var imageUrl = "assets/img/Jump (" + jumpCount + ").png"
@@ -483,7 +524,7 @@
         xa();
 
         $( "#characterOuter" ).animate({
-            top: "-100px"
+            top: "-200px"
         }, 400, function() {
         });
 
@@ -491,13 +532,13 @@
             top: "0px"
         }, 400, function() {
             scoreCheck();
-            clearInterval(jumpTime)
+            clearInterval(jumpTime);
 
 
 
         });
         if(enterCount>0){
-            clearInterval(runTime)
+            clearInterval(runTime);
             runTime =setInterval(run,100);
         }
 
@@ -512,6 +553,7 @@
         clearInterval(bgTime);
         clearInterval(fireTime);
         clearInterval(chForwardTime);
+       /* clearInterval(deadTime);*/
 
         var imageUrl = "assets/img/idle (" + idleCount + ").png"
         $('#character').attr("src",imageUrl);

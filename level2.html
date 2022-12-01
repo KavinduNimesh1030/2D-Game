@@ -1,169 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width initial-scale=1" name="viewport">
-  <link href="assets/css/normalize.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="assets/css/normalize.css" rel="stylesheet">
 
-  <title>Level 2</title>
-  <style>
-    main {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-color: #4F81BD;
-      overflow: hidden;
-    }
+    <title>Level 2</title>
+    <style>
+        main {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #4F81BD;
+            overflow: hidden;
+        }
 
-    #mainSec {
-      position: absolute;
-      height: 101%;
-      background: url(assets/img/bg2.jpg);
-      background-size: contain;
-      background-position: center;
-      width: 1000%;
-
-    }
-
-    #character {
-      width: 200px;
-      height: 200px;
-      z-index: 2;
-
-      position: fixed;
-      transform: translate(125px, 309px);
-      /* background: url("assets/img/Run (1).png");*/
-      /*  background-position: center;
-        background-size: cover;*/
-      /*animation-name: my-animation1;*/
-      /* animation-duration: 0.5s;
-       animation-iteration-count: infinite;
-       animation-direction: normal;
-       animation-timing-function: linear;*/
-
-
-    }
-
-    main > div > div > img {
-      width: 200px;
-      height: 200px;
-      z-index: 2;
-
-
-    }
-
-    main > div {
-      position: relative;
-      /*animation-name: my-animation2;
-      animation-duration: 17s;
-      animation-iteration-count: infinite;
-      animation-direction: normal;
-      animation-timing-function: linear;*/
-    }
-
-    #fireSec {
-      display: flex;
-      position: relative;
-      display: flex;
-      position: relative;
-      transform: translate(1350px, 442px);
-
-      justify-content: space-between;
-
-
-    }
-    /*    #drop{
-            width: 50px;
-            height: 50px;
-            border: 4px solid black;
+        #mainSec {
             position: absolute;
+            height: 101%;
+            background: url(assets/img/bg2.jpg);
+            background-size: contain;
+            background-position: center;
+            width: 1000%;
+
+        }
+
+        #character {
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+
+            position: fixed;
+            transform: translate(125px, 309px);
+            /* background: url("assets/img/Run (1).png");*/
+            /*  background-position: center;
+              background-size: cover;*/
+            /*animation-name: my-animation1;*/
+            /* animation-duration: 0.5s;
+             animation-iteration-count: infinite;
+             animation-direction: normal;
+             animation-timing-function: linear;*/
+
+
+        }
+
+        main > div > div > img {
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+
+
+        }
+
+        main > div {
+            position: relative;
+            /*animation-name: my-animation2;
+            animation-duration: 17s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;*/
+        }
+
+        #fireSec {
+            display: flex;
+            position: relative;
+            display: flex;
+            position: relative;
+            transform: translate(1350px, 442px);
+
+            justify-content: space-between;
+
+
+        }
+
+        /*    #drop{
+                width: 50px;
+                height: 50px;
+                border: 4px solid black;
+                position: absolute;
+                z-index: 4;
+                transform: translate(218px, 423px);
+
+            }*/
+
+        #fireSec > div {
+            width: 70px;
+            height: 70px;
+            margin-right: -20000px;
+            background: url("assets/img/f2.gif");
+            background-size: cover;
+            background-position: center;
+
+
+        }
+
+        #score {
+            display: flex;
+            width: 200px;
+            height: 18px;
+            position: absolute;
+            top: 123px;
+            left: 32px;
+            margin: auto;
+            border: 5px solid #521b06;
+            opacity: 70%;
             z-index: 4;
-            transform: translate(218px, 423px);
+        }
 
-        }*/
+        #score > div {
+            width: 20px;
+            height: 18px;
+            background-color: red;
+        }
 
-    #fireSec > div {
-      width: 70px;
-      height: 70px;
-      margin-right: -20000px;
-      background: url("assets/img/f2.gif");
-      background-size: cover;
-      background-position: center;
+        #scoreBG {
+            width: 360px;
+            height: 200px;
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            margin: auto;
+            z-index: 4;
+            background: url("assets/img/ScoreBoard.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        #scoreBG > h1 {
+            margin-top: 85px;
+            margin-left: 34px;
+            color: #320d02;
+
+        }
+
+        #mainBoard {
+            width: 500px;
+            height: 600px;
+            position: absolute;
+            display: flex;
+            z-index: 6;
+            transform: translate(420px, 20px);
+            background: url("assets/img/DB.png");
+            background-position: center;
+            background-size: cover;
+            opacity: 0%;
+
+        }
+
+        #mainBoard > div {
+            width: 140px;
+            height: 140px;
+            background: url(assets/img/star.png);
+            background-position: center;
+            background-size: cover;
+            transform: translate(87px, 228px);
+
+        }
+
+        #mainBoard > div:nth-child(2) {
+            transform: translate(45px, 199px);
+        }
+
+        #mainBoard > div:nth-child(3) {
+            transform: translate(2px, 225px);
+        }
+
+        #coin {
+            width: 30px;
+            height: 30px;
+            transform: translate(-198px, 366px);
+
+        }
+
+        #hart {
+            width: 30px;
+            height: 30px;
+            transform: translate(-226px, 432px);
+
+        }
+
+        #btnNext {
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            transform: translate(202px, 527px);
+            outline-color: transparent;
+            outline-style: solid;
+            box-shadow: 0 0 0 4px #320d02;
+            transition: 0.7s;
+            background-color: green;
+            border-radius: 10px;
+            font-size: 18px;
+            font-style: oblique;
 
 
-    }
-    #score{
-      display: flex;
-      width: 200px;
-      height: 18px;
-      position: absolute;
-      top: 123px;
-      left: 32px;
-      margin: auto;
-      border: 5px solid #521b06;
-      opacity: 70%;
-      z-index: 4;
-    }
-    #score>div{
-      width: 20px;
-      height: 18px;
-      background-color: red;
-    }
-    #scoreBG{
-      width: 360px;
-      height: 200px;
-      position: absolute;
-      top: -30px;
-      left: 10px;
-      margin: auto;
-      z-index: 4;
-      background: url("assets/img/ScoreBoard.png");
-      background-position: center;
-      background-size: cover;
-    }
-    #scoreBG>h1{
-      margin-top: 85px;
-      margin-left: 34px;
-      color: #320d02;
+        }
 
-    }
+        #lblScoreBoard {
+            position: absolute;
+            transform: translate(118px, 342px);
+            color: #320d02;
+        }
+
+        #lblScoreCount {
+            position: absolute;
+            transform: translate(275px, 341px);
+            color: #320d02;
+        }
+
+        #lblGemsBoard {
+            position: absolute;
+            transform: translate(118px, 404px);
+            color: #320d02;
+        }
+
+        #lblGemsCount {
+            position: absolute;
+            transform: translate(279px, 407px);
+            color: #320d02;
+        }
 
 
-  </style>
+    </style>
 </head>
 <body>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <script src="assets/js/oridomi.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
 <main>
-  <section id="scoreBG">
-    <h1 id="lblScore">Score : 0</h1>
-    <section id="score">
+    <section id="mainBoard">
+        <div id="star1"></div>
+        <div id="star2"></div>
+        <div id="star3"></div>
 
+        <img alt="" id="coin" src="assets/img/coine.png">
+        <img alt="" id="hart" src="assets/img/hart.png">
+
+        <button id="btnNext">Next</button>
+
+        <h1 id="lblScoreBoard">Score</h1>
+        <h1 id="lblScoreCount">1000</h1>
+
+        <h1 id="lblGemsBoard">Gems</h1>
+        <h1 id="lblGemsCount">locked</h1>
     </section>
-  </section>
+    <section id="scoreBG">
+        <h1 id="lblScore">Score : 0</h1>
+        <section id="score">
 
-  <div id="characterOuter">
-    <img  src="assets/img/Run%20(1).png" id="character">
+        </section>
+    </section>
 
-    <div id="drop">
+    <div id="characterOuter">
+        <img id="character" src="assets/img/Run%20(1).png">
 
+        <div id="drop">
+
+        </div>
+
+
+        </img>
     </div>
 
+    <Section id="mainSec">
 
-    </img>
-  </div>
-
-  <Section id="mainSec">
-
-  </Section>
-  <section id="fireSec">
+    </Section>
+    <section id="fireSec">
 
 
-  </section>
-  <box>
+    </section>
+    <box>
 
-  </box>
+    </box>
 
 </main>
 
@@ -171,145 +279,260 @@
 </body>
 <script>
 
-  var sample = 0;
-  var runTime = 0;
-  var bgTime =0;
-  var fireTime =0;
-  var chForwardTime =0;
-  var idleTime =0;
-  var deadTime = 0;
-  var deadAniTime =0;
-  var count = 1;
-  var BgLeft = 0;
-  var ChLeft = 0;
-  var fireLeft = 0;
-  var jumpCount = 1;
-  var idleCount =1;
-  var enterCount = 0;
-  var deadCount = 1;
-  var isDead = true;
-  var liveScore = 0;
+    var sample = 0;
+    var runTime = 0;
+    var bgTime = 0;
+    var fireTime = 0;
+    var chForwardTime = 0;
+    var idleTime = 0;
+    var deadTime = 0;
+    var deadAniTime = 0;
+    var count = 1;
+    var BgLeft = 0;
+    var ChLeft = 0;
+    var fireLeft = 0;
+    var jumpCount = 1;
+    var idleCount = 1;
+    var enterCount = 0;
+    var deadCount = 1;
+    var isDead = true;
+    var liveScore = 0;
 
-  /*const deadArray = ["45","70","90","115","140","165","185","215","235","260"];*/
-  const deadArray = ["60","95","130","160","195","230","265","295","330","365","400","435","465","500"];
-  const scoreArray = deadArray.slice()
+    /*const deadArray = ["45","70","90","115","140","165","185","215","235","260"];*/
+    const deadArray = ["60", "95", "130", "160", "195", "230", "265", "295", "330", "365", "400", "435", "465", "500"];
+    const scoreArray = deadArray.slice()
 
-  $(document).ready(function () {
+    $(document).ready(function () {
 
-    /*   $( function() {
-           $("#drop" ).draggable();
-           $("#fireSec" ).droppable({
-               drop: function( event, ui ) {
-                   alert("aa");
-                   $( this )
-                       .addClass( "ui-state-highlight" )
-                       .find( "p" )
-                       .html( "Dropped!" );
+        /*   $( function() {
+               $("#drop" ).draggable();
+               $("#fireSec" ).droppable({
+                   drop: function( event, ui ) {
+                       alert("aa");
+                       $( this )
+                           .addClass( "ui-state-highlight" )
+                           .find( "p" )
+                           .html( "Dropped!" );
 
-               }
-           });
-       } );*/
-    /*
-            var margT = $('#characterOuter>div').outerWidth(true) - $('#characterOuter').outerWidth();
-            console.log("m :" +margT)
-                xa();
+                   }
+               });
+           } );*/
+        /*
+                var margT = $('#characterOuter>div').outerWidth(true) - $('#characterOuter').outerWidth();
+                console.log("m :" +margT)
+                    xa();
 
-            $('#fireSec>div').find("#characterOuter").css("display","none");*/
-
-
+                $('#fireSec>div').find("#characterOuter").css("display","none");*/
 
 
+    });
 
-  });
+    function getPosition() {
+        var x = $("#characterOuter").offset().left;
+        var y = $("#characterOuter").offset().top;
 
-  function getPosition(){
-    var x = $("#characterOuter").offset().left;
-    var y = $("#characterOuter").offset().top;
-
-    console.log("x :"+ x);
-    console.log("y :"+ y);
-  }
-
-
-
-
-
-  $(document).keydown(function(event){
-    var x = 27;
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-
-
-    if(keycode == '13'){
-
-      clearInterval(runTime)
-      clearInterval(bgTime)
-      clearInterval(chForwardTime)
-      clearInterval(fireTime)
-      clearInterval(idleTime)
-
-      deadTime = setInterval(dead,0);
-      bgTime = setInterval(backGroundAnimation,7.2)
-      chForwardTime =setInterval(characterForward,210)
-      runTime = setInterval(run, 100);
-      fireTime = setInterval(fireSecForward,7.2);
-
-      getPosition();
-      if(enterCount==0){
-        addFire();
-        enterCount++;
-      }
-    }else if(keycode == '32'){
-      clearInterval(runTime)
-      jump();
-      clearInterval(jumpTime)
-      jumpTime = setInterval(jumpHigh,100);
-      getPosition();
-
-
-    }else if(keycode == '27'){
-      clearInterval(idleTime);
-      idleTime = setInterval(idle,80);
-      getPosition();
-
-      var x = $("#characterOuter").offset().left;
-      var y = $("#snake").offset().top;
-
-      console.log("Chare x :"+ x);
-      console.log("snake y :"+ y);
-
-
-
-
-    }
-  });
-
-
-  function scoreCheck(){
-    var x = $("#characterOuter").offset().left;
-
-    if(x>scoreArray[0]){
-      scoreArray.shift();
-      $('#score').append(`<div></div>`);
-      liveScore = liveScore+100;
-      var score = "Score : "+liveScore;
-
-      $('#lblScore').text(score);
-
-      if(liveScore==1000){
-        levelTwo();
-      }
+        console.log("x :" + x);
+        console.log("y :" + y);
     }
 
 
-  }
+    $(document).keydown(function (event) {
+        var x = 27;
+        var keycode = (event.keyCode ? event.keyCode : event.which);
 
 
-  function dead(){
-    var x = $("#characterOuter").offset().left;
-    var y = $("#characterOuter").offset().top;
-    for (const p of deadArray) {
-      /*for (let i = 0; i <20; i++) {*/
-      if(x == p && y == 0){
+        if (keycode == '13') {
+
+            clearInterval(runTime)
+            clearInterval(bgTime)
+            clearInterval(chForwardTime)
+            clearInterval(fireTime)
+            clearInterval(idleTime)
+
+            deadTime = setInterval(dead, 0);
+            bgTime = setInterval(backGroundAnimation, 7.2)
+            chForwardTime = setInterval(characterForward, 210)
+            runTime = setInterval(run, 100);
+            fireTime = setInterval(fireSecForward, 7.2);
+
+            getPosition();
+            if (enterCount == 0) {
+                addFire();
+                enterCount++;
+            }
+        } else if (keycode == '32') {
+            clearInterval(runTime)
+            jump();
+            clearInterval(jumpTime)
+            jumpTime = setInterval(jumpHigh, 100);
+            getPosition();
+
+
+        } else if (keycode == '27') {
+            clearInterval(idleTime);
+            idleTime = setInterval(idle, 80);
+            getPosition();
+
+            var x = $("#characterOuter").offset().left;
+            var y = $("#snake").offset().top;
+
+            console.log("Chare x :" + x);
+            console.log("snake y :" + y);
+
+
+        }
+    });
+
+
+    function scoreCheck() {
+        var x = $("#characterOuter").offset().left;
+
+        if (x > scoreArray[0]) {
+            scoreArray.shift();
+            $('#score').append(`<div></div>`);
+            liveScore = liveScore + 100;
+            var score = "Score : " + liveScore;
+
+            $('#lblScore').text(score);
+
+            if (liveScore == 1000) {
+               /* levelTwo();*/
+                $("#mainBoard").css("opacity","100%");
+
+            }
+        }
+
+
+    }
+
+
+    function dead() {
+        var x = $("#characterOuter").offset().left;
+        var y = $("#characterOuter").offset().top;
+        for (const p of deadArray) {
+            /*for (let i = 0; i <20; i++) {*/
+            if (x == p && y == 0) {
+
+                clearInterval(runTime);
+                clearInterval(jumpTime);
+                clearInterval(bgTime);
+                clearInterval(fireTime);
+                clearInterval(chForwardTime);
+
+                deadAniTime = setInterval(deadAnimation, 100);
+                clearInterval(deadTime);
+
+
+            }
+
+            //}
+
+
+        }
+    }
+
+
+    function deadAnimation() {
+
+        var imageUrl = "assets/img/Dead (" + deadCount + ").png"
+        if (deadCount == 10) {
+            deadCount = 1;
+            clearInterval(deadAniTime)
+        }
+        $('#character').attr("src", imageUrl);
+        deadCount++;
+
+
+    }
+
+
+    function run() {
+
+        var imageUrl = "assets/img/Run (" + count + ").png"
+        if (count == 8) {
+            count = 1;
+        }
+        $('#character').attr("src", imageUrl);
+        count++;
+
+
+    }
+
+
+    function backGroundAnimation() {
+        BgLeft = BgLeft + (-2);
+        $('#mainSec').css("left", BgLeft);
+    }
+
+    function characterForward() {
+        ChLeft = ChLeft + (5);
+        $('#characterOuter').css("left", ChLeft);
+    }
+
+    function fireSecForward() {
+        fireLeft = fireLeft + (-3);
+        $('#fireSec').css("left", fireLeft);
+    }
+
+
+    function addFire() {
+        for (let i = 0; i < 34; i++) {
+            $('#fireSec').append(`<div id="snake"></div>`);
+
+        }
+        var x = $("#fireSec>div").offset().left;
+        var y = $("#snake").offset().top;
+
+        console.log("snake x :" + x);
+        console.log("snake y :" + y);
+
+    }
+
+    function xa() {
+        var margT = $('#snake').outerWidth(true) - $('#characterOuter').outerWidth();
+        console.log(margT)
+    }
+
+    var jumpTime = 1;
+
+    function jumpHigh() {
+        var imageUrl = "assets/img/Jump (" + jumpCount + ").png"
+        $('#character').attr("src", imageUrl);
+
+        if (jumpCount == 10) {
+            jumpCount = 1;
+        }
+        jumpCount++;
+
+    }
+
+
+    function jump() {
+        xa();
+
+        $("#characterOuter").animate({
+            top: "-150px"
+        }, 400, function () {
+        });
+
+        $("#characterOuter").animate({
+            top: "0px"
+        }, 400, function () {
+            scoreCheck();
+            clearInterval(jumpTime)
+
+
+        });
+        if (enterCount > 0) {
+            clearInterval(runTime)
+            runTime = setInterval(run, 100);
+        }
+
+
+        //$('#characterOuter').css("top","-80px");
+    }
+
+    function idle() {
 
         clearInterval(runTime);
         clearInterval(jumpTime);
@@ -317,170 +540,45 @@
         clearInterval(fireTime);
         clearInterval(chForwardTime);
 
-        deadAniTime = setInterval(deadAnimation,100);
-        clearInterval(deadTime);
+        var imageUrl = "assets/img/idle (" + idleCount + ").png"
+        $('#character').attr("src", imageUrl);
 
-
-
-
-      }
-
-      //}
-
-
-    }
-  }
-
-
-  function  deadAnimation(){
-
-    var imageUrl = "assets/img/Dead (" + deadCount + ").png"
-    if (deadCount == 10) {
-      deadCount = 1;
-      clearInterval(deadAniTime)
-    }
-    $('#character').attr("src",imageUrl);
-    deadCount++;
-
-
-  }
-
-
-  function run() {
-
-    var imageUrl = "assets/img/Run (" + count + ").png"
-    if (count == 8) {
-      count = 1;
-    }
-    $('#character').attr("src",imageUrl);
-    count++;
-
-
-
-  }
-
-
-  function backGroundAnimation(){
-    BgLeft = BgLeft+(-2);
-    $('#mainSec').css("left",BgLeft);
-  }
-
-  function characterForward(){
-    ChLeft = ChLeft+(5);
-    $('#characterOuter').css("left",ChLeft);
-  }
-
-  function fireSecForward(){
-    fireLeft = fireLeft+(-3);
-    $('#fireSec').css("left",fireLeft);
-  }
-
-
-  function addFire(){
-    for (let i = 0; i < 34; i++) {
-      $('#fireSec').append(`<div id="snake"></div>`);
-
-    }
-    var x = $("#fireSec>div").offset().left;
-    var y = $("#snake").offset().top;
-
-    console.log("snake x :"+ x);
-    console.log("snake y :"+ y);
-
-  }
-
-  function xa(){
-    var margT = $('#snake').outerWidth(true) - $('#characterOuter').outerWidth();
-    console.log(margT)
-  }
-  var jumpTime = 1;
-
-  function jumpHigh() {
-    var imageUrl = "assets/img/Jump (" + jumpCount + ").png"
-    $('#character').attr("src",imageUrl);
-
-    if(jumpCount == 10){
-      jumpCount = 1;
-    }
-    jumpCount++;
-
-  }
-
-
-  function jump(){
-    xa();
-
-    $( "#characterOuter" ).animate({
-      top: "-150px"
-    }, 400, function() {
-    });
-
-    $( "#characterOuter" ).animate({
-      top: "0px"
-    }, 400, function() {
-      scoreCheck();
-      clearInterval(jumpTime)
-
-
-
-    });
-    if(enterCount>0){
-      clearInterval(runTime)
-      runTime =setInterval(run,100);
+        if (idleCount == 10) {
+            idleCount = 1;
+        }
+        idleCount++;
     }
 
 
+    // $(selector).stop(stopAll,goToEnd);
+    /*  function a(){
+          clearTimeout(a,sample);
+          $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
 
-    //$('#characterOuter').css("top","-80px");
-  }
-  function idle(){
+      }*/
 
-    clearInterval(runTime);
-    clearInterval(jumpTime);
-    clearInterval(bgTime);
-    clearInterval(fireTime);
-    clearInterval(chForwardTime);
+    /* $("#txtId").on('keyup', function (event) {
+         if (event.keyCode == 32) {
+             // $("#character").css("animation-name", my-animation3)
+             /!*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
+                $("#character").animate({top: "0px"});*!/
+             $("#character").css({"animation-name": "my-animation3","animation-direction":"normal","animation-iteration-count" :"1"})
 
-    var imageUrl = "assets/img/idle (" + idleCount + ").png"
-    $('#character').attr("src",imageUrl);
+             sample = setTimeout(a,1000)
 
-    if(idleCount == 10){
-      idleCount = 1;
-    }
-    idleCount++;
-  }
+         }
 
+     });*/
+    // $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
 
-
-  // $(selector).stop(stopAll,goToEnd);
-  /*  function a(){
-        clearTimeout(a,sample);
-        $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
-
+   /* function levelTwo() {
+        var imageUrl = "assets/img/bg2.jpg";
+        $("#mainSec").css("background-image", "url(" + imageUrl + ")");
+        clearInterval(bgTime);
+        clearInterval(fireTime)
+        setInterval(backGroundAnimation, 5);
+        setInterval(fireSecForward, 5)
     }*/
-
-  /* $("#txtId").on('keyup', function (event) {
-       if (event.keyCode == 32) {
-           // $("#character").css("animation-name", my-animation3)
-           /!*   $("#character").animate({top: "-60px" ,time: '1s'},"fast");
-              $("#character").animate({top: "0px"});*!/
-           $("#character").css({"animation-name": "my-animation3","animation-direction":"normal","animation-iteration-count" :"1"})
-
-           sample = setTimeout(a,1000)
-
-       }
-
-   });*/
-  // $("#character").css({"animation-name": "my-animation1","animation-direction":"normal","animation-iteration-count" :"infinite","animation-duration":"0.5s"})
-
-  function levelTwo(){
-    var imageUrl = "assets/img/bg2.jpg";
-    $("#mainSec").css("background-image", "url(" + imageUrl + ")");
-    clearInterval(bgTime);
-    clearInterval(fireTime)
-    setInterval(backGroundAnimation,5);
-    setInterval(fireSecForward,5)
-  }
 
 
 </script>
